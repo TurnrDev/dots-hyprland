@@ -15,7 +15,7 @@ depends=(
   ttf-space-mono-nerd
   ttf-rubik-vf
   ttf-gabarito-git
-  fish
+  zsh
   foot
   starship
   kvantum
