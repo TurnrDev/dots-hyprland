@@ -179,7 +179,7 @@ export const ExpandingIconTabContainer = ({
     const tabs = Box({
         hpack: tabsHpack,
         className: `spacing-h-5 ${tabSwitcherClassName}`,
-        children: icons.map((icon, i) => {
+        children: icons.length == 1 ? null : icons.map((icon, i) => {
             const tabIcon = MaterialIcon(icon, 'norm', { hexpand: true });
             const tabName = DoubleRevealer({
                 transition1: 'slide_right',
