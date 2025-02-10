@@ -1,6 +1,6 @@
 # This file is provided for non-Arch(based) distros.
 # As for Arch Linux, we use local PKGBUILDs or AUR packages, which is the "right" way compared to copying files directly into /usr/local/* .
-# P.S. install-yay() should be kept for Arch(based) distros.
+# P.S. install-pikaur() should be kept for Arch(based) distros.
 
 # This script depends on `functions' .
 # This is NOT a script for execution, but for loading functions, so NOT need execution permission or shebang.
@@ -11,15 +11,13 @@
 # export base="$(pwd)"
 
 # Only for Arch(based) distro.
-install-yay() {
-  x sudo pacman -S --needed --noconfirm base-devel
-  x git clone https://aur.archlinux.org/yay-bin.git /tmp/buildyay
-  x cd /tmp/buildyay
-  x makepkg -o
-  x makepkg -se
-  x makepkg -i --noconfirm
+install-pikaur() {
+  x sudo pacman -S --needed --noconfirm base-devel git
+  x git clone https://aur.archlinux.org/pikaur.git /tmp/buildpikaur
+  x cd /tmp/buildpikaur
+  x makepkg -fsri
   x cd $base
-  rm -rf /tmp/buildyay
+  rm -rf /tmp/buildpikaur
 }
 
 # Not for Arch(based) distro.
@@ -157,7 +155,7 @@ handle-deprecated-dependencies (){
 
 	echo "Attempting to set previously explicitly installed deps as implicit..."
 	for i in "${explicitly_installed[@]}"; do for j in "${old_deps_list[@]}"; do
-		[ "$i" = "$j" ] && yay -D --asdeps "$i"
+		[ "$i" = "$j" ] && pikaur -D --asdeps "$i"
 	done; done
 
 	return 0

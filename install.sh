@@ -62,22 +62,22 @@ esac
 remove_bashcomments_emptylines ${DEPLISTFILE} ./cache/dependencies_stripped.conf
 readarray -t pkglist < ./cache/dependencies_stripped.conf
 
-# Use yay. Because paru does not support cleanbuild.
+# Use pikaur. Because I like it.
 # Also see https://wiki.hyprland.org/FAQ/#how-do-i-update
-if ! command -v yay >/dev/null 2>&1;then
-  echo -e "\e[33m[$0]: \"yay\" not found.\e[0m"
-  showfun install-yay
-  v install-yay
+if ! command -v pikaur >/dev/null 2>&1;then
+  echo -e "\e[33m[$0]: \"pikaur\" not found.\e[0m"
+  showfun install-pikaur
+  v install-pikaur
 fi
 
 # Install extra packages from dependencies.conf as declared by the user
 if (( ${#pkglist[@]} != 0 )); then
 	if $ask; then
 		# execute per element of the array $pkglist
-		for i in "${pkglist[@]}";do v yay -S --needed $i;done
+		for i in "${pkglist[@]}";do v pikaur -S --needed $i;done
 	else
 		# execute for all elements of the array $pkglist in one line
-		v yay -S --needed --noconfirm ${pkglist[*]}
+		v pikaur -S --needed --noconfirm ${pkglist[*]}
 	fi
 fi
 
@@ -93,7 +93,7 @@ install-local-pkgbuild() {
 	x pushd $location
 
 	source ./PKGBUILD
-	x yay -S $installflags --asdeps "${depends[@]}"
+	x pikaur -S $installflags --asdeps "${depends[@]}"
 	x makepkg -si --noconfirm
 
 	x popd

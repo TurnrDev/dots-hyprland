@@ -40,7 +40,7 @@ v sudo rm -rf "$XDG_STATE_HOME/ags"
 
 ##############################################################################################################################
 
-# Undo Step 1: Remove added user from video, i2c, and input groups and remove yay packages
+# Undo Step 1: Remove added user from video, i2c, and input groups and remove pikaur packages
 printf '\e[36mRemoving user from video, i2c, and input groups and removing packages...\n\e[97m'
 user=$(whoami)
 v sudo gpasswd -d "$user" video
@@ -51,7 +51,7 @@ v sudo rm /etc/modules-load.d/i2c-dev.conf
 ##############################################################################################################################
 read -p "Do you want to uninstall packages used by the dotfiles?\nCtrl+C to exit, or press Enter to proceed"
 
-# Removing installed yay packages and dependencies
-v yay -Rns illogical-impulse-{ags,audio,backlight,basic,bibata-modern-classic-bin,fonts-themes,gnome,gtk,hyprland,microtex-git,oneui4-icons-git,portal,python,screencapture,widgets} plasma-browser-integration
+# Removing installed pikaur packages and dependencies
+v pikaur -Rns illogical-impulse-{ags,audio,backlight,basic,bibata-modern-classic-bin,fonts-themes,gnome,gtk,hyprland,microtex-git,oneui4-icons-git,portal,python,screencapture,widgets} plasma-browser-integration
 
 printf '\e[36mUninstall Complete.\n\e[97m'

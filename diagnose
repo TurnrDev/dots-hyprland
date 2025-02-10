@@ -57,7 +57,7 @@ x ls $XDG_DATA_HOME/gradience
 #x cat ~/.config/ags/
 
 #e "Checking command existence"
-#commands=(yay pacman zypper apt dnf yum)
+#commands=(pikaur pacman zypper apt dnf yum)
 #commands+=(ags swww)
 #commands+=(Hyprland hypr{ctl,idle,lock,picker})
 #commands+=(uv)
