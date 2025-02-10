@@ -91,17 +91,7 @@ let configOptions = {
     },
     'sidebar': {
         'ai': {
-            'extraGptModels': {
-                'oxygen3': {
-                    'name': 'Oxygen (GPT-3.5)',
-                    'logo_name': 'ai-oxygen-symbolic',
-                    'description': 'An API from Tornado Softwares\nPricing: Free: 100/day\nRequires you to join their Discord for a key',
-                    'base_url': 'https://app.oxyapi.uk/v1/chat/completions',
-                    'key_get_url': 'https://discord.com/invite/kM6MaCqGKA',
-                    'key_file': 'oxygen_key.txt',
-                    'model': 'gpt-3.5-turbo',
-                },
-            }
+            'extraGptModels': {}
         },
         'image': {
             'columns': 2,
